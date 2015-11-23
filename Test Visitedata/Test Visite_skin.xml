@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.18.3">
+
+    
+  <!-- Spot Style - Default Point Spot Style 1 -->
+  <style name="IconDefaultPointSpotStyle1"
+         url="%FIRSTXML%/spots/hotspot_neutral_user_defaultpoint0.png"
+         visible="false"
+         onhover="onhoverIconDefaultPointSpotStyle1"
+         onout="onoutIconDefaultPointSpotStyle1"
+         />
+  <action name="onhoverIconDefaultPointSpotStyle1">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconDefaultPointSpotStyle1">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+  
+  <!-- Spot Style - Default Polygon Spot Style 1 -->
+  <style name="PolygonDefaultPolygonSpotStyle1"
+           visible="false"
+           bordercolor="0xffffff"
+           fillcolor="0xffffff"
+           borderwidth="1"
+           borderalpha="1"
+           fillalpha="0.4"
+           capture="false"
+           onhover="onhoverPolygonDefaultPolygonSpotStyle1"
+           onover="onoverPolygonDefaultPolygonSpotStyle1"
+           onout="onoutPolygonDefaultPolygonSpotStyle1"
+           />
+  <action name="onhoverPolygonDefaultPolygonSpotStyle1">
+    showTooltip('hotspot');
+  </action>
+
+  <action name="onoverPolygonDefaultPolygonSpotStyle1">
+    set(borderwidth, 1);
+  </action>
+
+  <action name="onoutPolygonDefaultPolygonSpotStyle1">
+
+    set(borderwidth, 1);
+    hideTooltip();
+  </action>
+
+
+
+  <!-- ******************* -->
+  <!-- Rounded Control Bar -->
+  <!-- ******************* -->
+
+  <krpano roundcornerbarbuilt="false" roundcornerbarnbbuttons="0" roundcornerbarIsOpened="false" />
+
+  <events name="roundcornerbarevents" onxmlcomplete="roundcornerbarbuildMenuBar();" keep="true"/>
+  <action name="roundcornerbarbuildMenuBar">
+    ifnot (roundcornerbarbuilt, roundcornerbarbuildMenu(); set(roundcornerbarbuilt, true););
+  </action>
+
+  <action name="roundcornerbarbuildMenu">
+    txtadd(btnbgname, "roundcornerbarbtnbg", get(roundcornerbarnbbuttons));
+
+    if (roundcornerbarnbbuttons LT 6,
+      if (scene.count GT 1,
+        set(layer[roundcornerbarbtn_prev_pano].parent, get(btnbgname));
+        set(layer[roundcornerbarbtn_prev_pano].x     , get(plugin[get(btnbgname)].childx));
+        set(layer[roundcornerbarbtn_prev_pano].y     , get(plugin[get(btnbgname)].childy));
+        inc(roundcornerbarnbbuttons);
+        txtadd(btnbgname, "roundcornerbarbtnbg", get(roundcornerbarnbbuttons));
+
+        set(layer[roundcornerbarbtn_next_pano].parent, get(btnbgname));
+        set(layer[roundcornerbarbtn_next_pano].x     , get(plugin[get(btnbgname)].childx));
+        set(layer[roundcornerbarbtn_next_pano].y     , get(plugin[get(btnbgname)].childy));
+        inc(roundcornerbarnbbuttons);
+        txtadd(btnbgname, "roundcornerbarbtnbg", get(roundcornerbarnbbuttons));
+      );
+    ,
+      set(layer[roundcornerbarbtn_next_pano].disabled, true);
+      set(layer[roundcornerbarbtn_prev_pano].disabled, true);
+    );
+
+
+
+
+
+
+    if (roundcornerbarnbbuttons LT 6,
+      set(layer[roundcornerbarbtn_autorotate_on ].parent, get(btnbgname));
+      set(layer[roundcornerbarbtn_autorotate_on ].x     , get(plugin[get(btnbgname)].childx));
+      set(layer[roundcornerbarbtn_autorotate_on ].y     , get(plugin[get(btnbgname)].childy));
+      set(layer[roundcornerbarbtn_autorotate_off].parent, get(btnbgname));
+      set(layer[roundcornerbarbtn_autorotate_off].x     , get(plugin[get(btnbgname)].childx));
+      set(layer[roundcornerbarbtn_autorotate_off].y     , get(plugin[get(btnbgname)].childy));
+      inc(roundcornerbarnbbuttons);
+      txtadd(btnbgname, "roundcornerbarbtnbg", get(roundcornerbarnbbuttons));
+    ,
+      set(layer[roundcornerbarbtn_autorotate_on].disabled, true);
+      set(layer[roundcornerbarbtn_autorotate_off].disabled, true);
+    );
+
+
+
+    if (roundcornerbarnbbuttons LT 6,
+      if (device.desktop,
+        set(layer[roundcornerbarbtn_ctrlmode_drag_to].parent, get(btnbgname));
+        set(layer[roundcornerbarbtn_ctrlmode_drag_to].x     , get(plugin[get(btnbgname)].childx));
+        set(layer[roundcornerbarbtn_ctrlmode_drag_to].y     , get(plugin[get(btnbgname)].childy));
+        set(layer[roundcornerbarbtn_ctrlmode_move_to].parent, get(btnbgname));
+        set(layer[roundcornerbarbtn_ctrlmode_move_to].x     , get(plugin[get(btnbgname)].childx));
+        set(layer[roundcornerbarbtn_ctrlmode_move_to].y     , get(plugin[get(btnbgname)].childy));
+        inc(roundcornerbarnbbuttons);
+        txtadd(btnbgname, "roundcornerbarbtnbg", get(roundcornerbarnbbuttons));
+      );
+    ,
+      set(layer[roundcornerbarbtn_ctrlmode_drag_to].disabled, true);
+      set(layer[roundcornerbarbtn_ctrlmode_move_to].disabled, true);
+    );
+
+
+
+    if (roundcornerbarnbbuttons LT 6,
+      if (device.desktop,
+        set(layer[roundcornerbarbtn_display_help].parent, get(btnbgname));
+        set(layer[roundcornerbarbtn_display_help].x     , get(plugin[get(btnbgname)].childx));
+        set(layer[roundcornerbarbtn_display_help].y     , get(plugin[get(btnbgname)].childy));
+        set(layer[roundcornerbarbtn_close_help  ].parent, get(btnbgname));
+        set(layer[roundcornerbarbtn_close_help  ].x     , get(plugin[get(btnbgname)].childx));
+        set(layer[roundcornerbarbtn_close_help  ].y     , get(plugin[get(btnbgname)].childy));
+        inc(roundcornerbarnbbuttons);
+        txtadd(btnbgname, "roundcornerbarbtnbg", get(roundcornerbarnbbuttons));
+      );
+    ,
+      set(layer[roundcornerbarbtn_display_help].disabled, true);
+      set(layer[roundcornerbarbtn_close_help].disabled, true);
+    );
+
+	
+
+  </action>
+
+<events name="roundcornerbarStartTourEvents" onTourStart="roundcornerbarCallOnStartTour();" keep="true" />
+
+<action name="roundcornerbarCallOnStartTour">
+	
+	roundcornerbarshowMenuControls();
+</action>
+
+  <layer name="roundcornerbarmenu_roundcorner_bg"
+          keep="true"
+          url="%FIRSTXML%/graphics/roundcornerbar/footer.png"
+          zorder="0"
+          align="bottomright"
+          handcursor="false"
+          edge="right"
+          x="0"
+          y="0"
+          rotate="180"
+          capture="false"
+          visible="false" />
+
+  <style name="roundcornerbar_btn_style"
+         keep="true"
+         align="bottomright"
+         onhover="roundcornerbarshowMenuTooltip();"
+         onout="hideTooltip();"
+         zorder="2"
+         />
+
+  <style name="roundcornerbarbtnbgstyle" keep="true" pixelhittest="true" align="bottomright" zorder="1" alpha="0" />
+
+  <layer name="roundcornerbarbtnbg0" url="%FIRSTXML%/graphics/roundcornerbar/btn_round_corner_1.png" style="roundcornerbarbtnbgstyle" x="144" y="0"   childx="10" childy="6"  crop="0|0|48|49" onovercrop="0|49|48|49" ondowncrop="0|98|48|49" visible="false" />
+  <layer name="roundcornerbarbtnbg1" url="%FIRSTXML%/graphics/roundcornerbar/btn_round_corner_2.png" style="roundcornerbarbtnbgstyle" x="129" y="39"  childx="14" childy="10" crop="0|0|56|56" onovercrop="0|56|56|56" ondowncrop="0|112|56|56" visible="false" />
+  <layer name="roundcornerbarbtnbg2" url="%FIRSTXML%/graphics/roundcornerbar/btn_round_corner_3.png" style="roundcornerbarbtnbgstyle" x="106" y="75"  childx="15" childy="14" crop="0|0|60|60" onovercrop="0|60|60|60" ondowncrop="0|120|60|60" visible="false" /> 
+  <layer name="roundcornerbarbtnbg3" url="%FIRSTXML%/graphics/roundcornerbar/btn_round_corner_4.png" style="roundcornerbarbtnbgstyle" x="75"  y="106" childx="14" childy="15" crop="0|0|60|60" onovercrop="0|60|60|60" ondowncrop="0|120|60|60" visible="false" />
+  <layer name="roundcornerbarbtnbg4" url="%FIRSTXML%/graphics/roundcornerbar/btn_round_corner_5.png" style="roundcornerbarbtnbgstyle" x="39"  y="129" childx="10" childy="14" crop="0|0|56|56" onovercrop="0|56|56|56" ondowncrop="0|112|56|56" visible="false" />
+  <layer name="roundcornerbarbtnbg5" url="%FIRSTXML%/graphics/roundcornerbar/btn_round_corner_6.png" style="roundcornerbarbtnbgstyle" x="0"   y="144" childx="6"  childy="10" crop="0|0|48|48" onovercrop="0|48|48|48" ondowncrop="0|96|48|48" visible="false" />
+
+
+  <layer name="roundcornerbarbtn_prev_pano"
+         url="%FIRSTXML%/graphics/roundcornerbar/btn_previous_scene.png"
+         onclick="loadPreviousScene();
+"
+         style="roundcornerbar_btn_style"
+         visible="false"
+         tooltip="controlBar_roundedprevSceneTip"
+         />
+  <layer name="roundcornerbarbtn_next_pano"
+         url="%FIRSTXML%/graphics/roundcornerbar/btn_next_scene.png"
+         onclick="loadNextScene();
+"
+         style="roundcornerbar_btn_style"
+         visible="false"
+         tooltip="controlBar_roundednextSceneTip"
+         />
+
+
+
+
+
+
+  <layer name="roundcornerbarbtn_autorotate_on"
+          url="%FIRSTXML%/graphics/roundcornerbar/btn_start_autorotation.png"
+          onclick="resumeautorotation();
+"
+          style="roundcornerbar_btn_style"
+          visible="false"
+          tooltip="controlBar_roundedautorotateOnTip"
+          />
+  <layer name="roundcornerbarbtn_autorotate_off"
+          url="%FIRSTXML%/graphics/roundcornerbar/btn_stop_autorotation.png"
+          onclick="pauseautorotation();
+"
+          style="roundcornerbar_btn_style"
+          visible="false"
+          tooltip="controlBar_roundedautorotateOffTip"
+          />
+
+	<events name="roundcornerbarAutorotationEvents"
+		onstartautorotation="roundcornerbarupdateAutorotationButtons();"
+		onresumeautorotation="roundcornerbarupdateAutorotationButtons();"
+		onstopautorotation="roundcornerbarupdateAutorotationButtons();"
+		onpauseautorotation="roundcornerbarupdateAutorotationButtons();"
+		keep="true"/>
+	<action name="roundcornerbarHideAutorotationButtons">
+		set(layer[roundcornerbarbtn_autorotate_off].visible, false);
+		set(layer[roundcornerbarbtn_autorotate_on].visible , false);
+	</action>
+	<action name="roundcornerbarShowAutorotationButtons">
+		if(autorotate.enabled == false,
+			set(layer[roundcornerbarbtn_autorotate_off].visible, false);
+			set(layer[roundcornerbarbtn_autorotate_on].visible , true);
+		,
+			set(layer[roundcornerbarbtn_autorotate_off].visible, true);
+			set(layer[roundcornerbarbtn_autorotate_on].visible , false);
+		);
+	</action>
+	<action name="roundcornerbarupdateAutorotationButtons">
+		set(roundcornerbarDisplayAutorotationButtons, false);
+		if (roundcornerbarIsOpened, set(roundcornerbarDisplayAutorotationButtons, true););
+		if (roundcornerbarDisplayAutorotationButtons,
+			roundcornerbarShowAutorotationButtons();
+		,
+			roundcornerbarHideAutorotationButtons();
+		);
+	</action>
+
+
+
+  <events name="roundcornerbarcontrolmodechangeevent"
+          oncontrolmodechanged="roundcornerbarupdateControlModeButtons();"
+          keep="true"/>
+	<action name="roundcornerbarHideControlModeButtons">
+		set(layer[roundcornerbarbtn_ctrlmode_move_to].visible, false);
+		set(layer[roundcornerbarbtn_ctrlmode_drag_to].visible, false);
+	</action>
+	<action name="roundcornerbarShowControlModeButtons">
+		if (tour_controlmodemousetype == "moveto",
+			set(layer[roundcornerbarbtn_ctrlmode_drag_to].visible, true);
+			set(layer[roundcornerbarbtn_ctrlmode_move_to].visible, false);
+		,
+			set(layer[roundcornerbarbtn_ctrlmode_move_to].visible, true);
+			set(layer[roundcornerbarbtn_ctrlmode_drag_to].visible, false);
+		);
+	</action>
+	<action name="roundcornerbarupdateControlModeButtons">
+	if (device.desktop,
+		set(roundcornerbarDisplayControlModeButtons, false);
+		if (roundcornerbarIsOpened, set(roundcornerbarDisplayControlModeButtons, true););
+		if (roundcornerbarDisplayControlModeButtons,
+			roundcornerbarShowControlModeButtons();
+		,
+			roundcornerbarHideControlModeButtons();
+		);
+	,
+		roundcornerbarHideControlModeButtons();
+	);
+	</action>
+  <layer name="roundcornerbarbtn_ctrlmode_move_to"
+          url="%FIRSTXML%/graphics/roundcornerbar/btn_move_to.png"
+          style="roundcornerbar_btn_style"
+          tooltip="controlBar_roundedctrlmodeMoveTip"
+          onclick="setControlMode(moveto);"
+          visible="false"
+          devices="desktop"
+          />
+  <layer name="roundcornerbarbtn_ctrlmode_drag_to"
+          url="%FIRSTXML%/graphics/roundcornerbar/btn_drag_to.png"
+          style="roundcornerbar_btn_style"
+          tooltip="controlBar_roundedctrlmodeDragTip"
+          onclick="setControlMode(drag2d);"
+          visible="false"
+          devices="desktop"
+          />
+
+    <layer name="roundcornerbarbtn_display_help"
+            url="%FIRSTXML%/graphics/roundcornerbar/btn_help.png"
+            onclick="roundcornerbardisplayHelp();"
+            style="roundcornerbar_btn_style"
+            visible="false"
+            tooltip="controlBar_roundeddisplayHelpTip"
+            devices="desktop"
+            />
+    <layer name="roundcornerbarbtn_close_help"
+            url="%FIRSTXML%/graphics/roundcornerbar/btn_help.png"
+            onclick="roundcornerbarcloseHelp();"
+            style="roundcornerbar_btn_style"
+            tooltip="controlBar_roundedhideHelpTip"
+            devices="desktop"
+            visible="false"
+            />
+
+
+
+
+  <style name="roundcornerbarroundcorner_btn_nav_style"
+         keep="true"
+         pixelhittest="true"
+         onhover="roundcornerbarshowMenuTooltip();"
+         onout="hideTooltip();"
+         />
+
+  
+  <layer name="roundcornerbarmenu_navigation_bg"
+          keep="true"
+          type="container"
+          zorder="1"
+          align="bottomright"
+          edge="bottomright"
+          x="10"
+          y="10"
+          width="102"
+          height="102"
+          visible="true"
+          capture="false">
+
+    <layer name="roundcornerbarbtn_in"
+         zorder="1"
+            url="%FIRSTXML%/graphics/roundcornerbar/btn_zoom_in.png"
+            style="roundcornerbarroundcorner_btn_nav_style"
+            crop="0|0|66|33"
+            onovercrop="0|33|66|33"
+            ondown="set(fov_moveforce, -1);
+"
+            onup="set(fov_moveforce, 0);
+"
+            x="0" y="0"
+            edge="bottom"
+            align="center"
+            visible="false"
+            tooltip="controlBar_roundedzoomInTip"
+             />
+    <layer name="roundcornerbarbtn_out"
+         zorder="1"
+            url="%FIRSTXML%/graphics/roundcornerbar/btn_zoom_out.png"
+            style="roundcornerbarroundcorner_btn_nav_style"
+            crop="0|0|66|33"
+            onovercrop="0|33|66|33"
+            ondown="set(fov_moveforce, +1);
+"
+            onup="set(fov_moveforce, 0);
+"
+            x="0" y="0"
+            edge="top"
+            align="center"
+            visible="false"
+            tooltip="controlBar_roundedzoomOutTip"
+             />
+
+    <layer name="roundcornerbarbtn_left"
+           zorder="0"
+           ondown="set(hlookat_moveforce, -1);
+"
+           onup="set(hlookat_moveforce, 0);
+"
+            url="%FIRSTXML%/graphics/roundcornerbar/btn_move_left.png"
+            style="roundcornerbarroundcorner_btn_nav_style"
+            crop="0|0|29|74"
+            onovercrop="0|74|29|74"
+            x="0" y="0"
+            edge="left"
+            align="left"
+            visible="false"
+            tooltip="controlBar_roundedmoveLeftTip"
+            />
+    <layer name="roundcornerbarbtn_right"
+           zorder="0"
+           ondown="set(hlookat_moveforce, +1);
+"
+           onup="set(hlookat_moveforce, 0);
+"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_move_right.png"
+           style="roundcornerbarroundcorner_btn_nav_style"
+           crop="0|0|29|74"
+           onovercrop="0|74|29|74"
+           x="0" y="0"
+           edge="right"
+           align="right"
+           visible="false"
+           tooltip="controlBar_roundedmoveRightTip"
+           />
+
+    <layer name="roundcornerbarbtn_up"
+           zorder="0"
+           ondown="set(vlookat_moveforce, -1);
+"
+           onup="set(vlookat_moveforce, 0);
+"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_move_up.png"
+           style="roundcornerbarroundcorner_btn_nav_style"
+           crop="0|0|74|29"
+           onovercrop="0|29|74|29"
+           x="0" y="0"
+           align="top"
+           edge="top"
+           visible="false"
+           tooltip="controlBar_roundedmoveUpTip"
+           />
+    <layer name="roundcornerbarbtn_down"
+           zorder="0"
+           ondown="set(vlookat_moveforce, +1);
+"
+           onup="set(vlookat_moveforce, 0);
+"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_move_down.png"
+           style="roundcornerbarroundcorner_btn_nav_style"
+           crop="0|0|74|29"
+           onovercrop="0|29|74|29"
+           x="0" y="0"
+           edge="bottom"
+           align="bottom"
+           visible="false"
+           tooltip="controlBar_roundedmoveDownTip"
+           />
+
+    <layer name="roundcornerbarbtn_hidecontrols"
+           onclick="roundcornerbarhideMenuControls();hideTourControls();
+"
+           x="0" y="0"
+           keep="true"
+           zorder="2"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_hide_controls.png"
+                 crop="0| 0|28|28"
+           onovercrop="0|28|28|28"
+           ondowncrop="0|56|28|28"
+           style="roundcornerbarroundcorner_btn_nav_style"
+           edge="center"
+           align="center"
+           height="28"
+           width="28"
+           visible="false"
+           tooltip="controlBar_roundedhideControlsTip"
+           />
+    <layer name="roundcornerbarbtn_showcontrols"
+           onclick="roundcornerbarshowMenuControls();showTourControls();
+"
+           x="0" y="0"
+           keep="true"
+           zorder="2"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_show_controls.png"
+                 crop="0| 0|28|28"
+           onovercrop="0|28|28|28"
+           ondowncrop="0|56|28|28"
+           style="roundcornerbarroundcorner_btn_nav_style"
+           edge="center"
+           align="center"
+           visible="false"
+           height="28"
+           width="28"
+           tooltip="controlBar_roundeddisplayControlsTip"
+           />
+  </layer>
+
+  <style name="roundcornerbarbtn_fs_bg_style" keep="true"
+         url="%FIRSTXML%/graphics/roundcornerbar/btn_fs_bg.png"
+         align="topright"
+         devices="fullscreensupport"
+         zorder="0"
+         x="0" y="0"
+         crop="      0|  0|50|50"
+         onovercrop="0| 50|50|50"
+         ondowncrop="0|100|50|50"
+         onhover="roundcornerbarshowMenuTooltip();"
+         onout="hideTooltip();"
+         />
+  <style name="roundcornerbarbtn_fs_style" keep="true" align="topright"
+         devices="fullscreensupport"
+         x="5" y="5"
+         onhover="roundcornerbarshowMenuTooltip();"
+         onout="hideTooltip();"
+         />
+  <layer name="roundcornerbarbtn_openfs_bg"
+         style="roundcornerbarbtn_fs_bg_style"
+         onclick="enterFullscreen();
+"
+         visible="false"
+         alpha="0"
+         tooltip="controlBar_roundedopenFsTip"
+          >
+    <layer name="roundcornerbarbtn_openfs"
+           style="roundcornerbarbtn_fs_style"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_enter_fs.png"
+           onclick="enterFullscreen();
+"
+           tooltip="controlBar_roundedopenFsTip"
+           />
+  </layer>
+
+  <layer name="roundcornerbarbtn_closefs_bg"
+          style="roundcornerbarbtn_fs_bg_style"
+          visible="false"
+          alpha="0"
+          onclick="exitFullscreen();
+"
+          tooltip="controlBar_roundedcloseFsTip"
+         onhover="roundcornerbarshowMenuTooltip();"
+         onout="hideTooltip();"
+          >
+    <layer name="roundcornerbarbtn_closefs"
+           style="roundcornerbarbtn_fs_style"
+           url="%FIRSTXML%/graphics/roundcornerbar/btn_close_fs.png"
+           onclick="exitFullscreen();
+"
+           tooltip="controlBar_roundedcloseFsTip"
+          />
+  </layer>
+
+  <events name="roundcornerbarmenufullscreenchangeevent"
+          onenterfullscreen="roundcornerbarupdateFullscreenButtons();"
+          onexitfullscreen="roundcornerbarupdateFullscreenButtons();"
+          keep="true"/>
+	<action name="roundcornerbarHideFullscreenButtons">
+		tween(layer[roundcornerbarbtn_openfs_bg].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtn_openfs_bg].visible , false));
+		tween(layer[roundcornerbarbtn_closefs_bg].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtn_closefs_bg].visible , false));
+	</action>
+	<action name="roundcornerbarShowFullscreenButtons">
+		if (device.fullscreensupport,
+			if(tour_fullscreen,
+				if(layer[roundcornerbarbtn_openfs_bg].visible,
+					set(layer[roundcornerbarbtn_openfs_bg].visible , false);
+					set(layer[roundcornerbarbtn_closefs_bg].visible, true);
+				,
+					set(layer[roundcornerbarbtn_openfs_bg].visible , false);
+					set(layer[roundcornerbarbtn_closefs_bg].visible, true);
+					tween(layer[roundcornerbarbtn_openfs_bg].alpha, 1, 0.5);
+					tween(layer[roundcornerbarbtn_closefs_bg].alpha, 1, 0.5);
+				);
+			,
+				if(layer[roundcornerbarbtn_closefs_bg].visible,
+					set(layer[roundcornerbarbtn_openfs_bg].visible ,true);
+					set(layer[roundcornerbarbtn_closefs_bg].visible,false);
+				,
+					set(layer[roundcornerbarbtn_openfs_bg].visible , true);
+					set(layer[roundcornerbarbtn_closefs_bg].visible, false);
+					tween(layer[roundcornerbarbtn_openfs_bg].alpha, 1, 0.5);
+					tween(layer[roundcornerbarbtn_closefs_bg].alpha, 1, 0.5);
+				);
+			);
+		,
+			roundcornerbarHideFullscreenButtons();
+		);
+	</action>
+	<action name="roundcornerbarupdateFullscreenButtons">
+		set(roundcornerbarDisplayFullscreenButtons, false);
+		if (roundcornerbarIsOpened, set(roundcornerbarDisplayFullscreenButtons, true););
+		if (roundcornerbarDisplayFullscreenButtons,
+			roundcornerbarShowFullscreenButtons();
+		,
+			roundcornerbarHideFullscreenButtons();
+		);
+	</action>
+
+
+
+
+
+
+  <action name="roundcornerbarhideMenuControls">
+    set(roundcornerbarIsOpened, false);
+    if (roundcornerbarnbbuttons GT 0,
+      stoptween(layer[roundcornerbarmenu_roundcorner_bg].rotate);
+      stoptween(layer[roundcornerbarbtnbg0].alpha);
+      stoptween(layer[roundcornerbarbtnbg1].alpha);
+      stoptween(layer[roundcornerbarbtnbg2].alpha);
+      stoptween(layer[roundcornerbarbtnbg3].alpha);
+      stoptween(layer[roundcornerbarbtnbg4].alpha);
+      stoptween(layer[roundcornerbarbtnbg5].alpha);
+
+      tween(layer[roundcornerbarbtnbg0].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtnbg0].visible, false));
+      tween(layer[roundcornerbarbtnbg1].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtnbg1].visible, false));
+      tween(layer[roundcornerbarbtnbg2].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtnbg2].visible, false));
+      tween(layer[roundcornerbarbtnbg3].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtnbg3].visible, false));
+      tween(layer[roundcornerbarbtnbg4].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtnbg4].visible, false));
+      tween(layer[roundcornerbarbtnbg5].alpha, 0, 0.5, easeOutQuad, set(layer[roundcornerbarbtnbg5].visible, false));
+    );
+
+      set(layer[roundcornerbarbtn_showcontrols].visible, true);
+      set(layer[roundcornerbarbtn_hidecontrols].visible, false);
+      set(layer[roundcornerbarbtn_in].visible, false);
+      set(layer[roundcornerbarbtn_out].visible, false);
+      set(layer[roundcornerbarbtn_up].visible, false);
+      set(layer[roundcornerbarbtn_down].visible, false);
+      set(layer[roundcornerbarbtn_left].visible, false);
+      set(layer[roundcornerbarbtn_right].visible, false);
+
+
+      ifnot(layer[roundcornerbarbtn_prev_pano].disabled,
+      if (scene.count GT 1,
+        set(layer[roundcornerbarbtn_prev_pano].visible, false);
+        set(layer[roundcornerbarbtn_next_pano].visible, false);
+      );
+      );
+
+    roundcornerbarupdateFullscreenButtons();
+	ifnot(layer[roundcornerbarbtn_autorotate_on].disabled,roundcornerbarupdateAutorotationButtons(););
+
+
+	ifnot(layer[roundcornerbarbtn_ctrlmode_drag_to].disabled,roundcornerbarupdateControlModeButtons(););
+
+
+
+
+
+
+	ifnot(layer[roundcornerbarbtn_display_help].disabled,roundcornerbarupdateHelpButtons(););
+
+    if (roundcornerbarnbbuttons GT 0,
+      tween(layer[roundcornerbarmenu_roundcorner_bg].rotate, 180, 0.5, easeOutQuad, set(layer[roundcornerbarmenu_roundcorner_bg].visible, false););
+    );
+  </action>
+  <action name="roundcornerbarshowMenuControls">
+    set(roundcornerbarIsOpened, true);
+    if (roundcornerbarnbbuttons GT 0,
+      stoptween(layer[roundcornerbarmenu_roundcorner_bg].rotate);
+      stoptween(layer[roundcornerbarbtnbg0].alpha);
+      stoptween(layer[roundcornerbarbtnbg1].alpha);
+      stoptween(layer[roundcornerbarbtnbg2].alpha);
+      stoptween(layer[roundcornerbarbtnbg3].alpha);
+      stoptween(layer[roundcornerbarbtnbg4].alpha);
+      stoptween(layer[roundcornerbarbtnbg5].alpha);
+    );
+
+      set(layer[roundcornerbarbtn_hidecontrols].visible, true);
+      set(layer[roundcornerbarbtn_showcontrols].visible, false);
+
+
+    set(layer[roundcornerbarmenu_roundcorner_bg].visible, true);
+    tween(layer[roundcornerbarmenu_roundcorner_bg].rotate, 0, 0.5, easeOutQuad,
+
+      if (roundcornerbarnbbuttons GT 0,
+        set(  layer[roundcornerbarbtnbg0].visible, true);
+        tween(layer[roundcornerbarbtnbg0].alpha  , 1, 0.5);
+        set(  layer[roundcornerbarbtnbg1].visible, true);
+        tween(layer[roundcornerbarbtnbg1].alpha  , 1, 0.5);
+        set(  layer[roundcornerbarbtnbg2].visible, true);
+        tween(layer[roundcornerbarbtnbg2].alpha  , 1, 0.5);
+        set(  layer[roundcornerbarbtnbg3].visible, true);
+        tween(layer[roundcornerbarbtnbg3].alpha  , 1, 0.5);
+        set(  layer[roundcornerbarbtnbg4].visible, true);
+        tween(layer[roundcornerbarbtnbg4].alpha  , 1, 0.5);
+        set(  layer[roundcornerbarbtnbg5].visible, true);
+        tween(layer[roundcornerbarbtnbg5].alpha  , 1, 0.5);
+      );
+
+      set(layer[roundcornerbarbtn_in].visible, true);
+      set(layer[roundcornerbarbtn_out].visible, true);
+      set(layer[roundcornerbarbtn_up].visible, true);
+      set(layer[roundcornerbarbtn_down].visible, true);
+      set(layer[roundcornerbarbtn_left].visible, true);
+      set(layer[roundcornerbarbtn_right].visible, true);
+
+
+    ifnot(layer[roundcornerbarbtn_prev_pano].disabled,
+      if (scene.count GT 1,
+        set(layer[roundcornerbarbtn_prev_pano].visible, true);
+        set(layer[roundcornerbarbtn_next_pano].visible, true);
+      );
+    );
+
+      roundcornerbarupdateFullscreenButtons();
+	ifnot(layer[roundcornerbarbtn_autorotate_on].disabled,roundcornerbarupdateAutorotationButtons(););
+
+
+	ifnot(layer[roundcornerbarbtn_ctrlmode_drag_to].disabled,roundcornerbarupdateControlModeButtons(););
+
+
+
+
+
+	ifnot(layer[roundcornerbarbtn_display_help].disabled,roundcornerbarupdateHelpButtons(););
+
+
+    );
+  </action>
+
+
+  <layer name="roundcornerbarhelpScreenBg"
+          url="%FIRSTXML%/graphics/roundcornerbar/help_screen_bg.png"
+          keep="true"
+          align="bottomright"
+          x="0"
+          y="0"
+          rotate="-90"
+          zorder="97"
+          onclick="roundcornerbarcloseHelp();"
+          visible="false"
+          >
+  <layer name="roundcornerbarhelpScreen" 
+          keep="true"
+          align="center"
+          x="0"
+          y="0"
+          displayed="false"
+          onclick="roundcornerbarcloseHelp();"
+         url="%FIRSTXML%/graphics/roundcornerbar/help_screen.png" 
+         zorder="0"
+         />
+  <layer name="roundcornerbarbtnCloseHelpScreen"
+          url="%FIRSTXML%/graphics/roundcornerbar/btn_close_window.png"
+          keep="true"
+          align="topright"
+          onclick="roundcornerbarcloseHelp();"
+          tooltip="controlBar_roundedhideHelpTip"
+          onhover="roundcornerbarshowMenuTooltip();"
+          onout="hideTooltip();"
+          x="100"
+          y="10"
+          zorder="1"
+           />
+  </layer>
+  <action name="roundcornerbardisplayHelp">
+	if (device.desktop,
+		set(layer[roundcornerbarhelpScreen].displayed, true);
+
+	
+
+		roundcornerbarupdateHelpButtons();
+	);
+  </action>
+  <action name="roundcornerbarcloseHelp">
+	if (device.desktop,
+		set(layer[roundcornerbarhelpScreen].displayed, false);
+		roundcornerbarupdateHelpButtons();
+		
+
+	
+
+	);
+  </action>
+	<action name="roundcornerbarHideHelpButtons">
+		set(layer[roundcornerbarbtn_display_help].visible, false);
+		set(layer[roundcornerbarbtn_close_help].visible, false);
+		ifnot(layer[roundcornerbarhelpScreenBg].rotate == -90,
+			tween(layer[roundcornerbarhelpScreenBg].rotate, -90, 0.7, easeOutQuad, set(layer[roundcornerbarhelpScreenBg].visible, false););
+		);
+	</action>
+	<action name="roundcornerbarShowHelpButtons">
+		if (layer[roundcornerbarhelpScreen].displayed,
+			set(layer[roundcornerbarbtn_close_help].visible, true);
+			set(layer[roundcornerbarbtn_display_help].visible, false);
+			set(layer[roundcornerbarhelpScreenBg].visible, true);
+			ifnot(layer[roundcornerbarhelpScreenBg].rotate == 0,
+				tween(layer[roundcornerbarhelpScreenBg].rotate, 0, 0.7);
+			);
+		,
+			set(layer[roundcornerbarbtn_display_help].visible, true);
+			set(layer[roundcornerbarbtn_close_help].visible, false);
+			ifnot(layer[roundcornerbarhelpScreenBg].rotate == -90,
+				tween(layer[roundcornerbarhelpScreenBg].rotate, -90, 0.7, easeOutQuad, set(layer[roundcornerbarhelpScreenBg].visible, false););
+			);
+		);
+	</action>
+	<action name="roundcornerbarupdateHelpButtons">
+	if (device.desktop,
+		set(roundcornerbarDisplayHelpButtons, false);
+		if (roundcornerbarIsOpened, set(roundcornerbarDisplayHelpButtons, true););
+		if (roundcornerbarDisplayHelpButtons,
+			roundcornerbarShowHelpButtons();
+		,
+			roundcornerbarHideHelpButtons();
+		);
+	,
+		roundcornerbarHideHelpButtons();
+	);
+	</action>
+
+
+
+
+
+  <action name="roundcornerbarshowMenuTooltip">
+    if (tooltip !== null,
+      getmessage(tooltipmess, get(tooltip));
+      showTooltip('plugin', roundcornerbarmenuTooltipStyle, bottomright);
+    );
+  </action>
+
+  <layer name="roundcornerbarmenuTooltipStyle"
+	keep="true"
+	enabled="false"
+	capture="false"
+	url="%FIRSTXML%/graphics/textfield.swf"
+	align="center"
+	background="true"
+	backgroundcolor="0x9b8b75"
+	backgroundalpha="0.8"
+	border="false"
+	css="color:#000000;font-family:Times New Roman;font-weight:bold;font-size:14px;text-align:left;"
+	height="20"
+	autoheight="true"
+	autowidth="auto"
+	edge="bottomright"
+	selectable="false"
+	zorder="0"
+	padding="2"
+	xoffset="0"
+	yoffset="0"
+	visible="false"
+	html=""
+         />
+
+
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+</krpano>
