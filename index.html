@@ -83,7 +83,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <ul id="icones">
-                <li><a href="#aide"><img class="imgnav" src="assets/imgs/btn_aide.png"></a></li>
+                <li><a href="#aide" data-toggle="modal" data-target="#popinHelp"><img class="imgnav" src="assets/imgs/btn_aide.png"></a></li>
                 <li><a href="#indice"><img class="imgnav" src="assets/imgs/btn_points_0.png"></a></li>
             </ul>
         </div>
@@ -126,6 +126,26 @@
         </article>
     </div>
 </section>
+
+
+<!-- popin Aide  -->
+<div class="modal fade" id="popinHelp" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Aide</h4>
+            </div>
+            <div class="modal-body">
+                <p>Pour avancer dans la visite veuillez suivre les indications mentioner à l'écran</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="Test Visitedata/Test Visite.js"></script>
