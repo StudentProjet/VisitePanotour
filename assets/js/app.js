@@ -9,13 +9,14 @@ $( document ).ready(function() {
 
     // transition home -> content
     $("#go").bind("click", function(){
-       $("#home").fadeOut("slow");
-       $("#content").fadeIn("slow");
+        $("#home").fadeOut("slow");
+        $("#content").fadeIn("slow");
+        $("#popinCommencer").modal("show");
     });
 
     $("a[data-href='accueil']").bind("click", function(){
-       $('#home').fadeIn("slow");
-       $('#content').fadeOut("slow");
+        $('#home').fadeIn("slow");
+        $('#content').fadeOut("slow");
     });
 
 });
