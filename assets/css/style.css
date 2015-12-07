@@ -192,3 +192,34 @@ div#panoDIV {
     -o-user-select: none;
     user-select: none;
 }
+
+.letters_div{
+    margin-top: 2px;
+    margin-bottom:2px;
+}
+
+.square_letter{
+    height : 60px;
+    background: #969696;
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    border : solid;
+    border-width : 1px;
+    /* float : none; */
+}
+
+.square_letter_to_pickup{
+    height : 60px;
+    background: #ebe87f;
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    border : solid;
+    border-width : 1px;
+    /* float : none; */
+}
+
+.good_answer{
+    background-color: #00BB00;
+}

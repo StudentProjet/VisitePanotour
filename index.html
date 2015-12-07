@@ -12,16 +12,6 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <!--[if !IE]><!-->
-    <script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
-    <!--<![endif]-->
-    <!--[if lte IE 8]>
-    <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
-    <![endif]-->
-    <!--[if gt IE 8]>
-    <script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
-    <![endif]-->
-
     <script type="text/javascript">
         function readDeviceOrientation() {
             // window.innerHeight is not supported by IE
@@ -121,8 +111,174 @@
         </div>
         <div class="col-md-4" id="style-enigme">
             <div id="content-enigme">
-                <h3>Pour trouver blabla :</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, dicta dignissimos distinctio ducimus explicabo hic illo illum, inventore magnam odio officiis omnis perspiciatis quis repellendus sapiente sit suscipit tempora.</p>
+                <div class="col-md-12 barreEnigme">
+                    <h3>Enigme 1</h3>
+                </div>
+
+                <div class="col-md-12">
+                    <div id="enigme1" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Pour trouver l'énigme 1, longe la nef jusqu'au <strong>centre de la cathédrale</strong>. Tu dois trouver la cathèdre qui se situe devant le grille de coeur.</p>
+                            <p>La cathèdre est le siège où l'évêque préside les cérémonies.</p>
+                        </div>
+                        <div class="enigme_content hidden">
+                            <div class="col-md-12 enigme_text">
+                                <p>Bravo tu as trouvé l'énigme 1</p>
+                                <p>Pour résoudre cette énigme, replace les lettres dans l'ordre pour reconstituer le premier indice</p>
+                                <p>Si la case devient verte, c'est que la lettre est à la bonne place.</p>
+                                <p>A toi de jouer !</p>
+                            </div>
+                            <div class="col-md-12 col-xs-12 col-sm-12 letters_div">
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter"></div>
+                            </div>
+                            <div class="col-md-12 col-xs-12 col-sm-12 letters_div">
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter_to_pickup" data-letter="E"><span class="draggable">E</span></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter_to_pickup" data-letter="E"><span class="draggable">E</span></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter_to_pickup" data-letter="V"><span class="draggable">V</span></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter_to_pickup" data-letter="Q"><span class="draggable">Q</span></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter_to_pickup" data-letter="E"><span class="draggable">E</span></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 square_letter_to_pickup" data-letter="U"><span class="draggable">U</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="enigme2" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Dirige-toi vers le <strong>NORD</strong> ...</p>
+                        </div>
+                        <div class="enigme_content hidden">
+
+                        </div>
+                    </div>
+                    <div id="enigme3" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Recherche <strong>des anges surmontant une porte, revers d'un portail</strong>.</p>
+                        </div>
+                        <div class="enigme_content hidden">
+
+                        </div>
+                    </div>
+                    <div id="enigme4" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Recherche <strong>le labyrinthe</strong>.</p>
+                            <p>Situé dans la nef, ce labyrinthe dont le parcours mesure 234 mètres, représente un octogone.
+                                Il est constitué d'un pavage de pierres blanches et bleu foncé.</p>
+                        </div>
+                        <div class="enigme_content hidden">
+                            <div class="col-md-12">
+                                <p>Bravo, tu as trouvé l'énigme 4 !</p>
+                                <p class="small">Pour résoudre cette énigme, replace les 3 architectes de la cathédrale dans l'ordre chronologique.</p>
+                                <p class="small">Il te restera ensuite à placer l'évêque qui a commandé la cathédrale en quatrième position.</p>
+                            </div>
+
+                            <div id="dragDropEnigme4" class="col-md-12">
+                                <div id="cardSlots">
+                                    <div data-letter="p" class="recepteur"> - </div>
+                                    <div data-letter="a" class="recepteur"> - </div>
+                                    <div data-letter="i" class="recepteur"> - </div>
+                                    <div data-letter="n" class="recepteur"> - </div>
+                                </div>
+                                <div id="cardPile">
+                                    <div data-letter="n" class="dragIt"> Evrard de Fouilloy -> N </div>
+                                    <div data-letter="p" class="dragIt"> Robert de Luzarche -> P </div>
+                                    <div data-letter="i" class="dragIt"> Renaud de Cormont -> I </div>
+                                    <div data-letter="a" class="dragIt"> Thomas de Cormont -> A </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="enigme5" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Rends-toi au devant de la <strong>clôture de coeur</strong>, qui ferme l'espace sacré, pas très loin de la cathèdre.</p>
+                        </div>
+                        <div class="enigme_content hidden">
+                        </div>
+                    </div>
+                    <div id="enigme6" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Rends-toi <strong>près d'un pilier</strong>, d'où tu peux voir la tribune des grandes orgues, située à l'arrière de la façade occidentale.</p>
+                        </div>
+                        <div class="enigme_content hidden">
+                        </div>
+                    </div>
+                    <div id="enigme7" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Dirige-toi dans les bas côtés de la Cathédrale, qui se situent de part et d'autre de la nef.</p>
+                            <p>Il te faut trouver le bas-côté Nord.</p>
+                            <p>L'indice se trouve près de la chapelle qui porte le nom de notre personnage mystère.</p>
+                        </div>
+                        <div class="enigme_content col-md-12 hidden">
+                            <p>À toi de retrouver le personnage mystère. Aide-toi des indices trouvés.</p>
+                            <p>Mais attention tu n'as le droit qu'à 3 chances !</p>
+                            <p>Si tu échoues, tu perdras tes 5 clés</p>
+                            <p>Clique sur une lettre pour savoir si elle se trouve dans le mot.</p>
+                            <div class="row pendu">
+                                <div class="letter S col-md-1 col-sm-1 col-xs-1">S</div>
+                                <div class="letter A col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter I col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter N col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter T col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter col-md-1 col-sm-1 col-xs-1">-</div>
+                                <div class="letter col-md-1 col-sm-1 col-xs-1">H</div>
+                                <div class="letter O col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter N col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter O col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter R col-md-1 col-sm-1 col-xs-1">_</div>
+                                <div class="letter É col-md-1 col-sm-1 col-xs-1">_</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-10 col-sm-10">
+                                    <div class="row choice_letter">
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">T</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">C</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">R</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">I</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">L</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">U</div>
+                                    </div>
+                                    <div class="row choice_letter">
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">P</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">A</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">É</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">O</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">M</div>
+                                        <div class="letter col-md-2 col-sm-2 col-xs-2">N</div>
+                                    </div>
+                                </div>
+                                <div id="essaisRestant" class="col-md-2 col-sm-2 col-xs-2">
+                                    3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="derniereChance" class="row enigmes">
+                        <div class="enigme_content col-md-12 hidden">
+                            <p>Connais-tu cette pâtisserie ?</p>
+                            <img src="assets/imgs/patisserie.jpg" width="50%"/>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <span class="label label-default dcLabel dcFaux">Une Religieuse</span>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <span class="label label-default dcLabel dcFaux">Un Paris-Brest</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <span class="label label-default dcLabel dcVrai">Un Saint-Honoré</span>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <span class="label label-default dcLabel dcFaux">Un donut</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -130,7 +286,7 @@
     <div class="row">
         <div class="col-md-8">
             <div id="style-indice">
-                <h3>Indice Trouvés :</h3>
+                <h3>Indices Trouvés :</h3>
                 <p></p>
             </div>
         </div>
@@ -142,7 +298,35 @@
 
 </section>
 
-<!-- popin Commencer  -->
+<!-- popin Aide  -->
+<div class="modal fade" id="popinHelp" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Aide</h4>
+            </div>
+            <div class="modal-body">
+                <p>Pour avancer dans la visite veuillez suivre les indications mentioner à l'écran</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- #modal1 - Bienvenue -->
+<!-- #modal2 - Félicitations indice 1 trouvé -->
+<!-- #modal3 - Félicitations première partie indice 2 trouvé -->
+<!-- #modal4 - Félicitations seconde partie indice 2 trouvé -->
+<!-- #modal5 - Félicitations indice 3 trouvé -->
+<!-- #modal6 - Félicitations indice 4 trouvé -->
+<!-- #modal7 - Félicitations indice 5 trouvé -->
+<!-- #modal8 - Avant début énigme 6 -->
+
+<!-- Modal 1 - popin Commencer  -->
 <div class="modal fade" id="popinCommencer" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -164,25 +348,213 @@
     </div>
 </div>
 
-<!-- popin Aide  -->
-<div class="modal fade" id="popinHelp" role="dialog">
+<!-- Modal 2 -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Aide</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Félicitations</h4>
             </div>
             <div class="modal-body">
-                <p>Pour avancer dans la visite veuillez suivre les indications mentioner à l'écran</p>
+                <p>Tu as trouvé l'indice 1. C'est le mot évêque. Tu as gagné <strong>1 CLEF</strong>.</p>
+                <p>La personne que nous recherchons est un évêque !</p>
+                <p>Tu as découvert le centre de la Cathédrale qui s'appelle <strong>la croisée du transept</strong>. Elle sépare la nef du choeur</p>
+                <img src="assets/imgs/plan1.jpg" />
+                <p>Maintenant dirige-toi vers le Nord</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal 2 -->
+<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Félicitations</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé la première partie de l'indice 2. C'est le chiffre 3.</p>
+                <p>Pour trouver la seconde partie de l'indice, tu dois te rendre à l'opposé du Nord.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 4 -->
+<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Félicitations</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé la seconde partie de l'indice 2. C'est aussi le chiffre 3. La somme des 2 parties d'indice constitue l'indice 2.</p>
+                <p>Tu as maintenant deux indices : Evêque et le chiffre 6.</p>
+                <p>Tu gagnes aussi <strong>une 2ème CLEF</strong>.</p>
+                <p>Tu as découvert <strong>les bras Nord et Sud du transept</strong>.</p>
+                <img src="assets/imgs/plan2.jpg" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 5 -->
+<div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Félicitations</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le 3e indice qui est le mot pain.</p>
+                <p>Tu as maintenant : Evêque, 6 et pain.</p>
+                <p>Tu gagnes <strong>une nouvelle CLEF</strong>.</p>
+                <p>Tu as également découvert l'histoire du <strong>labyrinthe</strong>.</p>
+                <p>Sa pierre centrale, dont l'original est conservé au Musée de Picardie, indique les points cardinaux.</p>
+
+                <img src="assets/imgs/centre_labyrinthe.jpg" />
+                <p>Tu connais maintenant la <strong>nef de la cathédrale</strong></p>
+                <img src="assets/imgs/plan3.jpg" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 6 -->
+<div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Félicitations</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le 4e indice qui est boulanger.</p>
+                <p>Tu as maintenant : Evêque, 6, pain et boulanger.</p>
+                <p>Tu gagnes encore <strong>1 CLEF</strong>.</p>
+                <p>Tu as su retrouver la croisée du transept et la cloture qui délimite le <strong>choeur de la cathédrale</strong>.</p>
+                <p>Le choeur est habituellement en 1er construit dans une cathédrale, mais à Amiens les architectes ont fait le choix de commencer par la nef.</p>
+
+                <img src="assets/imgs/plan4.jpg" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 7 -->
+<div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Félicitations</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le 5e indice qui est saint.</p>
+                <p>Tu as maintenant : Evêque, 6, pain, boulanger et saint.</p>
+                <p>Tu as maintenant <strong>5 CLEFS</strong>.</p>
+                <p>Tu as également trouvé <strong>la tribune d'orgue</strong>.</p>
+
+                <img src="assets/imgs/plan5.jpg" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 8 -->
+<div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Bravo,</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé la chapelle et le bas-côté Nord.</p>
+                <p>Généralement, les bas-côtés ouvrent sur les chapelles.</p>
+                <p>À Amiens, il en existe 11.</p>
+
+                <img src="assets/imgs/plan6.jpg" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 9 -->
+<div class="modal fade" id="modal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Voilà,</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le personnage mystère.</p>
+                <p>Il s'agit du 6ème évêque d'Amiens, vers l'an 600, Saint Honoré.</p>
+                <p>Il est devenu le St Patron des Boulangers, fêté le 16 mai, le jour de la fête du pain.</p>
+                <p>Il a donné son nom à la célèbre patisserie : le saint Honoré.</p>
+                <p>Il est représenté en tenue d'évêque portant un pain dans la main.</p>
+
+                <center><img src="assets/imgs/st-honore.jpg" /></center>
+
+                <p>La corporation des boulangers lui a dédié la chapelle devant laquelle tu te trouves.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="endWin">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 10 -->
+<div class="modal fade" id="modal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Dommage,</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu n'as pas réussi à trouver le nom du personnage mystère. </p>
+                <p>Tu viens de perdre toutes tes clefs, tu ne pourras donc pas accéder au secret ultime.</p>
+                <p>Mais il reste une dernière chance pour tenter de trouver le personnage mystère.</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="Test Visitedata/Test Visite.js"></script>
 <script type="text/javascript" src="assets/js/app.js"></script>
