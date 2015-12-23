@@ -135,10 +135,16 @@ img#bandeau{
 section#content {
     display: none;
     height: 100%;
-    min-height: 100%;
     width: 100%;
-    margin: 0 auto;
-    padding-top: 1%;
+    margin: 0;
+}
+
+#border{
+    height: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 div#content-indice{
@@ -150,6 +156,30 @@ div#style-indice {
     border: 1px solid #DDDDDD;
     border-radius: 3px;
     padding-left: 10px;
+    height: 100px;
+}
+
+#indice img{
+    float: right;
+    margin-right: 10%;
+}
+
+#bulle{
+    position: relative;
+}
+
+#bulle p{
+    z-index: 2;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+#bulle img{
+    z-index: 1;
+    position: absolute;
+    width: 240px;
+    float: left;
 }
 
 div#content-enigme{
@@ -162,7 +192,7 @@ div#content-enigme{
 }
 
 div#style-enigme{
-    height: 95%;
+    height: 100%;
 }
 
 /* Panotour */
@@ -222,4 +252,45 @@ div#panoDIV {
 
 .good_answer{
     background-color: #00BB00;
+}
+
+@media screen and (min-width: 1320px) {
+    #indice img{
+        margin-top: -10px;
+        margin-right: 35%;
+    }
+}
+
+@media screen and (max-width: 759px) {
+
+    #border{
+        height: initial;
+    }
+
+    div#panoDIV {
+        height: 30em;
+    }
+
+    div#content-enigme{
+        position: relative;
+        height: 30em;
+    }
+
+    #style-enigme, #indice{
+        margin-top: 1%;
+    }
+
+    #indice img{
+        margin-top: 2%;
+        margin-right: 140px;
+    }
+
+    #bulle p{
+        top: 55px;
+        left: 75px;
+    }
+
+    #bulle img{
+        margin-left: 40px;
+    }
 }
