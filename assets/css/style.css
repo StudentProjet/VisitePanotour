@@ -141,10 +141,8 @@ section#content {
 
 #border{
     height: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
+    padding: 10px 10px 160px 10px;
+    border: 2px solid #E4CAAD;
 }
 
 div#content-indice{
@@ -159,9 +157,9 @@ div#style-indice {
     height: 100px;
 }
 
-#indice img{
-    float: right;
-    margin-right: 10%;
+#indice img {
+    position: absolute;
+    left: 40px;
 }
 
 #bulle{
@@ -171,15 +169,15 @@ div#style-indice {
 #bulle p{
     z-index: 2;
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 50px;
+    left: 180px;
 }
 
 #bulle img{
     z-index: 1;
     position: absolute;
     width: 240px;
-    float: left;
+    left: 30%;
 }
 
 div#content-enigme{
@@ -209,7 +207,7 @@ div#panoDIV.cursorDragMode {
 }
 
 div#tourDIV {
-    height:60%;
+    height:75%;
     position:relative;
 }
 
@@ -286,11 +284,11 @@ div#panoDIV {
     }
 
     #bulle p{
-        top: 55px;
-        left: 75px;
+        top: 60px;
+        left: 160px;
     }
 
     #bulle img{
-        margin-left: 40px;
+        margin-left: -5px;
     }
 }
