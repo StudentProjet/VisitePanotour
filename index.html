@@ -77,7 +77,7 @@
         <div class="col-md-4">
             <ul id="icones">
                 <li><a href="#aide" data-toggle="modal" data-target="#popinHelp"><img class="imgnav" src="assets/imgs/btn_aide.png"></a></li>
-                <li><a href="#indice"><img class="imgnav" src="assets/imgs/btn_points_0.png"></a></li>
+                <li><a href="#indice"><img class="imgnav" id="indice-img" src="assets/imgs/btn_points_0.png"></a></li>
             </ul>
         </div>
     </div>
@@ -116,21 +116,26 @@
         </div>
         <div class="col-md-4" id="style-enigme">
             <div id="content-enigme">
-                <div class="col-md-12 barreEnigme">
-                    <h3></h3>
-                    <p>Pour la première énigme, recherche des <strong>anges surmontant une porte, revers d’un portail</strong>.</p>
-                    <p>N’oublies pas de cliquer sur le jeu pour pouvoir  jouer.</p>
-                </div>
+                <div class="col-md-12 barreEnigme"></div>
 
                 <div class="col-md-12">
+
                     <div id="enigme1" class="row enigmes">
                         <div class="enigme_info col-md-12 hidden">
-                            <p>Pour trouver l'énigme 1, longe la nef jusqu'au <strong>centre de la cathédrale</strong>. Tu dois trouver la cathèdre qui se situe devant le grille de coeur.</p>
-                            <p>La cathèdre est le siège où l'évêque préside les cérémonies.</p>
+                            <h3></h3>
+                            <p>Recherche <strong>des anges surmontant une porte, revers d'un portail</strong>.</p>
+                        </div>
+                        <div class="enigme_content hidden"></div>
+                    </div>
+
+                    <div id="enigme2" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Pour trouver la seconde énigme, tu dois trouver la cathèdre qui se situe devant la grille de cœur.</p>
+                            <p>La cathèdre est le siège où l’évêque préside les cérémonies.</p>
                         </div>
                         <div class="enigme_content hidden">
                             <div class="col-md-12 enigme_text">
-                                <p>Bravo tu as trouvé l'énigme 1</p>
+                                <p>Bravo tu as trouvé l'énigme 2</p>
                                 <p>Pour résoudre cette énigme, replace les lettres dans l'ordre pour reconstituer le premier indice</p>
                                 <p>Si la case devient verte, c'est que la lettre est à la bonne place.</p>
                                 <p>A toi de jouer !</p>
@@ -153,23 +158,30 @@
                             </div>
                         </div>
                     </div>
-                    <div id="enigme2" class="row enigmes">
-                        <div class="enigme_info col-md-12 hidden">
-                            <p>Dirige-toi vers le <strong>NORD</strong> ...</p>
-                        </div>
-                        <div class="enigme_content hidden">
 
-                        </div>
-                    </div>
                     <div id="enigme3" class="row enigmes">
                         <div class="enigme_info col-md-12 hidden">
-                            <p>Recherche <strong>des anges surmontant une porte, revers d'un portail</strong>.</p>
+                            <p>Diriges-toi vers <strong>l’EST</strong>.</p>
                         </div>
                         <div class="enigme_content hidden">
-
+                            <p>Bravo, tu as trouvé l'énigme 3 !</p>
+                            <p>Pour résoudre cette énigme, compte le nombre de personnes au centre, et multiplie-le par deux.</p>
+                            <p>A toi de jouer !</p>
                         </div>
                     </div>
+
                     <div id="enigme4" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Diriges-toi vers <strong>le NORD</strong>.</p>
+                        </div>
+                        <div class="enigme_content hidden">
+                            <p>Bravo tu as trouvé l’énigme 4</p>
+                            <p>Pour résoudre cette énigme, clique sur tous les R qui se cachent parmi les B.</p>
+                            <p>A toi de jouer !</p>
+                        </div>
+                    </div>
+
+                    <div id="enigme" class="row enigmes">
                         <div class="enigme_info col-md-12 hidden">
                             <p>Recherche <strong>le labyrinthe</strong>.</p>
                             <p>Situé dans la nef, ce labyrinthe dont le parcours mesure 234 mètres, représente un octogone.
@@ -205,6 +217,7 @@
                         <div class="enigme_content hidden">
                         </div>
                     </div>
+
                     <div id="enigme6" class="row enigmes">
                         <div class="enigme_info col-md-12 hidden">
                             <p>Rends-toi <strong>près d'un pilier</strong>, d'où tu peux voir la tribune des grandes orgues, située à l'arrière de la façade occidentale.</p>
@@ -237,7 +250,7 @@
                                 <div class="letter R col-md-1 col-sm-1 col-xs-1">_</div>
                                 <div class="letter É col-md-1 col-sm-1 col-xs-1">_</div>
                             </div>
-                            <div class="row">
+                            <div class="row center-block">
                                 <div class="col-md-10 col-md-10 col-sm-10">
                                     <div class="row choice_letter">
                                         <div class="letter col-md-2 col-sm-2 col-xs-2">T</div>
@@ -255,9 +268,6 @@
                                         <div class="letter col-md-2 col-sm-2 col-xs-2">M</div>
                                         <div class="letter col-md-2 col-sm-2 col-xs-2">N</div>
                                     </div>
-                                </div>
-                                <div id="essaisRestant" class="col-md-2 col-sm-2 col-xs-2">
-                                    3
                                 </div>
                             </div>
                         </div>
@@ -294,15 +304,15 @@
         <div class="col-md-8">
             <div id="style-indice">
                 <h3>Indices Trouvés :</h3>
-                <p></p>
+                <p id="text-indice"></p>
             </div>
         </div>
         <div class="col-md-4">
             <div id="bulle">
-                <p>Bienvenue !! <br> Je suis la pour <br> t'aider pendant ta visite.</p>
+                <p>Je suis la pour <br> t'aider pendant ta visite.</p>
                 <img src="assets/imgs/bulle.png" alt="">
             </div>
-            <img src="assets/imgs/enqueteur_normal.png" width="69"/>
+            <img id="enqueteur" src="assets/imgs/enqueteur_normal.png" width="69"/>
         </div>
     </div>
 
@@ -344,7 +354,7 @@
                 <p>Bonne chasse.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default" id="commencer" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -362,10 +372,10 @@
                 <p>Tu as trouvé la première partie de l’indice 1. C’est le chiffre 3. </p>
                 <p>Tu as maintenant un indice : Le chiffre 3.</p>
                 <p>Tu as découvert le bras Sud du transept.</p>
-                <img src="assets/imgs/plan2.jpg" />
+                <img src="assets/imgs/popup_1.png" />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default continue" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -382,8 +392,8 @@
             <div class="modal-body">
                 <p>Tu as trouvé l’indice 2 ; C’est le mot évêque. Tu as gagné 1 CLEF.</p>
                 <p>La personne que nous recherchons est un évêque !</p>
-                <p>Tu as découvert le centre de la Cathédrale qui s’appelle la croisée du transept. Elle sépare la nef du chœur</p>
-                <img src="assets/imgs/plan1.jpg" />
+                <p>Tu as découvert le centre de la Cathédrale qui s’appelle <strong>la croisée du transept</strong>. Elle sépare la nef du chœur</p>
+                <img src="assets/imgs/popup_2.png" />
                 <p>Maintenant dirige-toi vers l’Est</p>
             </div>
             <div class="modal-footer">
@@ -405,7 +415,7 @@
                 <p>Tu as trouvé l’indice 3. 8, reporté dans l’alphabet, correspond au H.</p>
                 <p>Tu as découvert le déambulatoire, qui abrite le tombeau du chanoine.</p>
                 <p>Tes indices sont maintenant 3, évêque et H.</p>
-                <img src="assets/imgs/plan1.jpg" />
+                <img src="assets/imgs/popup_3.png" alt="">
                 <p>Maintenant dirige-toi vers le Nord</p>
             </div>
             <div class="modal-footer">
@@ -428,7 +438,7 @@
                 <p>Tu as maintenant trois indices : Evêque, le chiffre 6, et H.</p>
                 <p>Tu gagnes aussi une 3ème CLEF.</p>
                 <p>Tu as découvert les bras Nord et Sud du transept.</p>
-                <img src="assets/imgs/plan3.jpg" />
+                <img src="assets/imgs/popup_4.png" alt="">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
@@ -446,10 +456,10 @@
                 <h4 class="modal-title">Félicitations</h4>
             </div>
             <div class="modal-body">
-                <p>Félicitations, tu as trouvé le 4e indice qui est boulanger. Tu as maintenant : Evêque, 6, H et boulanger.</p>
+                <p>Félicitations, tu as trouvé le 4e indice qui est boulanger. Tu as maintenant : 3, évèque, H, boulanger.</p>
                 <p>Tu gagnes encore <strong>1 CLEF</strong>.</p>
                 <p>Tu as su retrouver la croisée du transept et la clôture qui délimite le chœur de la cathédrale. Le chœur est habituellement en 1er construit dans une cathédrale, mais à Amiens les architectes ont fait le choix de commencer par la nef.</p>
-                <img src="assets/imgs/plan4.jpg" />
+                <img src="assets/imgs/popup_5.png" alt="">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
@@ -470,7 +480,7 @@
                 <p>Tu as trouvé l’indice 5 qui est saint. Tu as maintenant : Evêque, 6, H, boulanger et saint.</p>
                 <p>Tu as maintenant <strong>5 CLEF</strong>.</p>
                 <p>Tu as également trouvé la tribune d’orgue.</p>
-                <img src="assets/imgs/plan5.jpg" />
+                <img src="assets/imgs/popup_6.png" alt="">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
@@ -493,7 +503,7 @@
                 <p>Tu as également découvert l’histoire du <strong>labyrinthe</strong>. Sa pierre centrale, dont l’original est conservé au Musée de Picardie, indique les points cardinaux.</p>
                 <img src="assets/imgs/centre_labyrinthe.jpg">
                 <p>Tu connais maintenant <strong>la nef de la cathédrale</strong></p>
-                <img src="assets/imgs/plan5.jpg" />
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
@@ -515,7 +525,7 @@
                 <p>Tu as trouvé la chapelle et le bas-côté Nord.</p>
                 <p>Généralement, les bas-côtés ouvrent sur les chapelles.</p>
                 <p>A Amiens il en existe 11.</p>
-                <img src="assets/imgs/plan6.jpg" />
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>

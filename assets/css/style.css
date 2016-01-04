@@ -169,15 +169,56 @@ div#style-indice {
 #bulle p{
     z-index: 2;
     position: absolute;
-    top: 50px;
-    left: 180px;
+    top: 55px;
+    left: 170px;
 }
 
 #bulle img{
     z-index: 1;
     position: absolute;
-    width: 240px;
+    width: 210px;
     left: 30%;
+}
+
+.GrilleEnigme2{
+    text-align: center;
+}
+
+.choice_letter{
+    font-size:20px;
+    margin:auto;
+}
+
+.pendu{
+    font-size:2.5rem;
+    margin-bottom: 20px;
+}
+
+.pendu .letter{
+    padding-right: 0px;
+
+}
+
+.pendu .col-xs-1, .pendu .col-sm-1, .pendu .col-md-1{
+    width: 7%;
+}
+
+.choice_letter > .letter{
+    padding:0px;
+    text-align: center;
+    border: 1px solid #000000;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#essaisRestant{
+    padding-left: 0px;
+    color: red;
+    font-weight: bolder;
+    font-size: 14px;
 }
 
 div#content-enigme{
