@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano>
+
+<!-- ************************ -->
+<!--         Messages         -->
+<!-- ************************ -->
+
+  <data name="en_project_title"><![CDATA[Nouveau projet]]></data>
+
+
+
+  <data name="en_pano179_title"><![CDATA[1-Bras-sud-transept]]></data>
+  <data name="en_spotpoint198javascriptcalljsfunctioncall"><![CDATA[startstep(1)]]></data>
+  <data name="en_spotpoint1065javascriptcalljsfunctioncall"><![CDATA[]]></data>
+
+
+  <data name="en_pano180_title"><![CDATA[2-5-GrillesCoeurs]]></data>
+  <data name="en_spotpoint204javascriptcalljsfunctioncall"><![CDATA[startstep(2)]]></data>
+  <data name="en_spotpoint205javascriptcalljsfunctioncall"><![CDATA[startstep(3)]]></data>
+
+
+  <data name="en_pano181_title"><![CDATA[3-Deambulatoire]]></data>
+  <data name="en_spotpoint251javascriptcalljsfunctioncall"><![CDATA[startstep(4)]]></data>
+
+
+  <data name="en_pano182_title"><![CDATA[3-Déambulatoire-Droit]]></data>
+
+
+  <data name="en_pano183_title"><![CDATA[3-Déambulatoire-Gauche]]></data>
+
+
+  <data name="en_pano184_title"><![CDATA[4-Bras-nord-transept]]></data>
+  <data name="en_spotpoint255javascriptcalljsfunctioncall"><![CDATA[startstep(5)]]></data>
+
+
+  <data name="en_pano185_title"><![CDATA[6-GrandesOrgues]]></data>
+  <data name="en_spotpoint257javascriptcalljsfunctioncall"><![CDATA[startstep(6)]]></data>
+
+
+  <data name="en_pano186_title"><![CDATA[7-Labyrinthe]]></data>
+
+
+  <data name="en_pano187_title"><![CDATA[8-Chapelle-SaintHonoré]]></data>
+  <data name="en_spotpoint263javascriptcalljsfunctioncall"><![CDATA[startstep(7)]]></data>
+
+
+  <data name="en_pano310_title"><![CDATA[1_ange_stat]]></data>
+
+
+  <data name="en_pano311_title"><![CDATA[3-Deambulatoire-stat]]></data>
+
+
+  <data name="en_pano312_title"><![CDATA[6-Statue-stat]]></data>
+
+
+  <data name="en_pano313_title"><![CDATA[7-Laby-stat]]></data>
+
+
+  <data name="en_pano315_title"><![CDATA[Enigme-Croisée du transept]]></data>
+
+
+  <data name="en_pano316_title"><![CDATA[Enigme-GrillesCoeur]]></data>
+
+
+  <data name="en_pano407_title"><![CDATA[1-Droite]]></data>
+
+
+  <data name="en_pano408_title"><![CDATA[1-gauche]]></data>
+
+
+  <data name="en_pano409_title"><![CDATA[2-Gauche]]></data>
+
+
+  <data name="en_pano410_title"><![CDATA[Portail NORD]]></data>
+  <data name="en_spotpoint1062javascriptcalljsfunctioncall"><![CDATA[startstep(10)]]></data>
+
+
+  <data name="en_pano411_title"><![CDATA[Portail SUD]]></data>
+  <data name="en_spotpoint968javascriptcalljsfunctioncall"><![CDATA[startstep(8)]]></data>
+
+
+  <data name="en_pano412_title"><![CDATA[Portail WEST]]></data>
+  <data name="en_spotpoint969javascriptcalljsfunctioncall"><![CDATA[startstep(9)]]></data>
+
+
+  <data name="en_pano1063_title"><![CDATA[Viergedorée]]></data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</krpano>

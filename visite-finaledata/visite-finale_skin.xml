@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.18.3">
+
+    
+  <!-- Spot Style - Fléche droite -->
+  <style name="IconFléchedroite"
+         url="%FIRSTXML%/spots/hotspot_direction_sequence_user_defaultpoint0.png"
+         visible="false"
+         frame="0"
+         lastframe="15"
+         framewidth="98"
+         frameheight="48"
+         stopspotsequence="false"
+         crop="0|0|98|48"
+         onloaded="startspotanimation(0.1);"
+         onhover="onhoverIconFléchedroite"
+         onout="onoutIconFléchedroite"
+         />
+  <action name="onhoverIconFléchedroite">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconFléchedroite">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - Enigme -->
+  <style name="IconEnigme"
+         url="%FIRSTXML%/spots/hotspot_neutral_sequence_user_defaultpoint1.png"
+         visible="false"
+         frame="0"
+         lastframe="17"
+         framewidth="70"
+         frameheight="70"
+         stopspotsequence="false"
+         crop="0|0|70|70"
+         onloaded="startspotanimation(0.1);"
+         onhover="onhoverIconEnigme"
+         onout="onoutIconEnigme"
+         />
+  <action name="onhoverIconEnigme">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconEnigme">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - Fléche haut -->
+  <style name="IconFléchehaut"
+         url="%FIRSTXML%/spots/hotspot_direction_sequence_user_defaultpoint2.png"
+         visible="false"
+         frame="0"
+         lastframe="15"
+         framewidth="98"
+         frameheight="48"
+         stopspotsequence="false"
+         crop="0|0|98|48"
+         onloaded="startspotanimation(0.1);"
+         rotate="270"
+         onhover="onhoverIconFléchehaut"
+         onout="onoutIconFléchehaut"
+         />
+  <action name="onhoverIconFléchehaut">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconFléchehaut">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - Fléche gauche -->
+  <style name="IconFléchegauche"
+         url="%FIRSTXML%/spots/hotspot_direction_sequence_user_defaultpoint3.png"
+         visible="false"
+         frame="0"
+         lastframe="15"
+         framewidth="98"
+         frameheight="48"
+         stopspotsequence="false"
+         crop="0|0|98|48"
+         onloaded="startspotanimation(0.1);"
+         rotate="180"
+         onhover="onhoverIconFléchegauche"
+         onout="onoutIconFléchegauche"
+         />
+  <action name="onhoverIconFléchegauche">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconFléchegauche">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+  <!-- ******* -->
+  <!-- Compass -->
+  <!-- ******* -->
+
+
+  <layer name="compassbackground"
+         type="container"
+         keep="true"
+         handcursor="false"
+         capture="false"
+         align="topright"
+         x="0"
+         y="0"
+         zorder="0"
+         visible="false"
+
+         height="125"
+         width="125"
+
+         >
+
+    <layer name="compassrotatebackground"
+           url="%FIRSTXML%/graphics/compass/compassbgd7d7d7.png"
+           keep="true"
+           handcursor="false"
+           capture="false"
+           align="center"
+           zorder="0"
+           height="100%"
+           width="100%"
+           />
+
+    <layer name="compasspointer"
+           url="%FIRSTXML%/graphics/compass/compasspointer6a431f.png"
+           keep="true"
+           align="center"
+           handcursor="false"
+           capture="false"
+           zorder="1"
+           height="100%"
+           width="100%"
+
+          />
+  </layer>
+
+  <events name="compassevts"
+          keep="true"
+          onnewpano="compassUpdateOrientation();"
+          onviewchanged="compassUpdateOrientation();"
+    onTourStart="showcompass();"
+          hidetourcontrols="hidecompass();"
+          showtourcontrols="showcompass();"
+         />
+
+  <action name="compassUpdateOrientation">
+	mod(compasshlookat, view.hlookat, 360);
+    mul(compassheading, -1, get(scene[get(xml.scene)].heading));
+    if (compassheading == null, set(compassheading, 0));
+	sub(layer[compassrotatebackground].rotate, compassheading, compasshlookat);
+  </action>
+
+ 
+  <action name="hidecompass">
+    set(layer[compassbackground].visible, false);
+  </action>
+  <action name="showcompass">
+    set(layer[compassbackground].visible, true);
+  </action>
+
+
+</krpano>

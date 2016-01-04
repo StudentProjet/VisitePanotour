@@ -1,6 +1,6 @@
 /* Init Panotour */
 embedpano({
-    swf:"Test Visitedata/Test Visite.swf",
+    swf:"visite-finaledata/visite-finale.swf",
     target:"panoDIV",
     passQueryParameters:true
 });
@@ -21,8 +21,13 @@ $( document ).ready(function() {
     initGestionEnigme1();
 });
 
-function test(){
-    alert('ok');
+function startstep(number){
+    //alert(number);
+    switch (number){
+        case "1":
+            initGestionEnigme1();
+            break;
+    }
 }
 
 function initGestionEnigme1() {
@@ -250,9 +255,9 @@ function initGestionEnigme5(){
         "<p class='col-md-12 col-xs-12 col-sm-12'>Sauras-tu résoudre ce rébus pour trouver le quatrième indice ?</p>" +
         "<p class='col-md-12'>À toi de jouer !</p>" +
         "<div class='col-md-12 col-xs-12 col-sm-12'>"+
-        "<img class='col-md-4' src='public/images/boule.png' alt='boule' />"+
-        "<img class='col-md-4' src='public/images/ange.png' alt='ange' />"+
-        "<img class='col-md-4' src='public/images/&.png' alt='et' />"+
+        "<img class='col-md-4' src='assets/imgs/boule.png' alt='boule' />"+
+        "<img class='col-md-4' src='assets/imgs/ange.png' alt='ange' />"+
+        "<img class='col-md-4' src='assets/imgs/&.png' alt='et' />"+
         "</div>"+
         "<div class='inputRebus col-md-12 col-xs-12 col-sm-12'>"+
         "<input type='text' placeholder='Réponse' name='reponseRebus'/><button class='checkRebus'> Vérifier </button></div><div class='indication col-md-12'></div>");
