@@ -7,11 +7,28 @@ embedpano({
 
 $( document ).ready(function() {
 
+    $('#endWin').click(afficherIntersticielFin);
+    $('#endLost').click(afficherIntersticielFin);
+
+    $("#restartWin").on('click', function(){
+        localStorage.removeItem("ecathedrale-enigme");
+        localStorage.removeItem("ecathedrale-etat");
+        localStorage.removeItem("ecathedrale-indice");
+        location.reload(true);
+    });
+
+    $("#restartLost").on('click', function(){
+        localStorage.removeItem("ecathedrale-enigme");
+        localStorage.removeItem("ecathedrale-etat");
+        localStorage.removeItem("ecathedrale-indice");
+        location.reload(true);
+    });
+
     if(localStorage.getItem("ecathedrale-enigme") !== null && localStorage.getItem("ecathedrale-etat") !== null){
         cacherIntersticielDebut();
 
-        if(localStorage.getItem("ecathedrale-indice") == "1"){
-            localStorage.setItem('ecathedrale-indice', '0');
+        if(localStorage.getItem("ecathedrale-info-indice") == "1"){
+            localStorage.setItem('ecathedrale-info-indice', '0');
             $("#indice-img").attr("src","assets/imgs/btn_points_1.png");
         }
 
@@ -44,19 +61,19 @@ $( document ).ready(function() {
         $('#content').fadeOut("slow");
     });
 
-    $(".btn").bind("click", function(){
+    $(".change").bind("click", function(){
         $("#enqueteur").attr("src","assets/imgs/enqueteur_normal.png");
         $('#bulle p').html('Je suis la pour <br>t\'aider pendant ta visite.');
     });
 
     $(".continue").bind("click", function(){
-        localStorage.setItem('ecathedrale-indice', '1');
+        localStorage.setItem('ecathedrale-info-indice', '1');
         location.reload(true);
     });
 });
 
 function startstep(number){
-    alert(number);
+    //alert(number);
     if(localStorage.getItem("ecathedrale-enigme") == number){
         localStorage.setItem('ecathedrale-etat', 'resoudre');
         $('.barreEnigme').html('<h3>Énigme '+number+"</h3>");
@@ -83,6 +100,9 @@ function startstep(number){
                 break;
             case '7':
                 initGestionEnigme7();
+                break;
+            case '8':
+                initGestionEnigme8();
                 break;
         }
     }
@@ -286,11 +306,11 @@ function initGestionEnigme2() {
  * */
 function initGestionEnigme3() {
     var htmlEnigme = $("#enigme3 .enigme_content");
-    var nombrePers = 4;
+    var nombrePers = 8;
 
     //Écriture de l'énigme <html> dans la div énigme
     htmlEnigme
-        .html("<p class='col-md-12'>Pour résoudre cette énigme, dis-nous combien d'anges surplombent le portail <br/>À toi de jouer !</p><div class='col-md-12'><input type='text' placeholder='Réponse' name='reponseNbPers' /> <button class='checkAnge'>Vérifier</button></div><div class='indication col-md-12'></div>"
+        .html("<p class='col-md-12'>Pour résoudre cette énigme, compte le nombre de personnes au centre, et multiplie-le par deux. <br/>À toi de jouer !</p><div class='col-md-12'><input type='text' placeholder='Réponse' name='reponseNbPers' /> <button class='checkAnge'>Vérifier</button></div><div class='indication col-md-12'></div>"
     );
 
     $("#enqueteur").attr("src","assets/imgs/enqueteur_reflechit.png");
@@ -303,10 +323,9 @@ function initGestionEnigme3() {
         if (reponseUser == nombrePers) {
             $("#enqueteur").attr("src","assets/imgs/enqueteur_expose.png");
             $('#bulle p').html('BRAVO !');
-            $("#pano").show();
             $("#indice-img").attr("src","assets/imgs/btn_points_3.png");
-            writeIndice('3, évèque, ...');
-            $('#bulle p').html('Je suis la pour <br>t\'aider pendant ta visite.');
+            writeIndice('3, évèque, H');
+            $("#modal3").modal("show");
             chercherEnigme(4, false);
         } else {
             $('#bulle p').html('Ce n\'est pas la<br> bonne réponse. <br>Essaye encore ...');
@@ -346,7 +365,7 @@ function initGestionEnigme4(){
                 $("#modal4").modal("show");
                 $("#indice-img").attr("src","assets/imgs/btn_points_3.png");
                 chercherEnigme(5, false);
-                writeIndice('3, évèque, H');
+                writeIndice('3 + 3, évèque, H');
             }
         }
 
@@ -385,7 +404,7 @@ function initGestionEnigme5(){
             $("#modal5").modal("show");
             chercherEnigme(6, false);
             $("#indice-img").attr("src","assets/imgs/btn_points_4.png");
-            writeIndice('3, évèque, H, Boulanger');
+            writeIndice('3 + 3, évèque, H, Boulanger');
         }
         else{
             $('#bulle p').html('Ce n\'est pas la<br> bonne réponse. <br>Essaye encore ...');
@@ -430,14 +449,65 @@ function initGestionEnigme6(){
             $("#modal6").modal("show");
             chercherEnigme(7, false);
             $("#indice-img").attr("src","assets/imgs/btn_points_5.png");
-            writeIndice('3, évèque, H, Boulanger, Saint');
+            writeIndice('3 + 3, évèque, H, Boulanger, Saint');
         }else{
             $('#bulle p').html('Ce n\'est pas la<br> bonne réponse. <br>Essaye encore ...');
         }
     });
 }
 
-function initGestionEnigme7() {
+function initGestionEnigme7(){
+    $("#enqueteur").attr("src","assets/imgs/enqueteur_reflechit.png");
+    $('#bulle p').html('Reflechit bien !');
+    var correctCards = 0;
+    $(".dragIt").disableSelection();
+
+    function handleCardDrop(event, ui ) {
+        var slotLetter = $(this).data('letter');
+        var cardLetter = ui.draggable.data('letter');
+
+        ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+
+        $("#cardPile").find("div").each(function() {
+            if($(this).data("letterStock")===slotLetter){
+                $(this).css("left", "");
+                $(this).css("top", "");
+                $(this).removeData("letterStock");
+            }
+        });
+
+        if (cardLetter !== slotLetter) {
+            ui.draggable.data("letterStock", $(this).data('letter'));
+        } else {
+            ui.draggable.addClass('correctCard');
+            ui.draggable.draggable('disable');
+            $(this).droppable('disable');
+            ui.draggable.draggable('option', 'revert', false);
+            correctCards++;
+            console.log(correctCards);
+            if(correctCards===4){
+                $("#indice-img").attr("src","assets/imgs/btn_points_6.png");
+                $("#enqueteur").attr("src","assets/imgs/enqueteur_expose.png");
+                $('#bulle p').html('BRAVO !');
+                $("#modal7").modal("show");
+                chercherEnigme(8, false);
+                writeIndice('3 + 3, évèque, H, Boulanger, Saint, Pain');
+            }
+        }
+    }
+
+    $(".recepteur").droppable({
+        drop: handleCardDrop
+    });
+
+    $(".dragIt").draggable({
+        containment: '#dragDropEnigme7',
+        cursor: 'move',
+        revert:"invalid"
+    });
+}
+
+function initGestionEnigme8() {
     $("#modal8").modal("show");
     var essaisRestant = 3;
     var bonnesReponses = 0;
@@ -468,8 +538,7 @@ function initGestionEnigme7() {
         }
 
         if(bonnesReponses === 7){
-            $("#indice-img").attr("src","assets/imgs/btn_points_6.png");
-            writeIndice('3, évèque, H, Boulanger, Saint, Pain');
+            writeIndice('3 + 3, évèque, H, Boulanger, Saint, Pain');
             $("#enqueteur").attr("src","assets/imgs/enqueteur_expose.png");
             $('#bulle p').html('BRAVO !');
             $("#modal9").modal("show");
@@ -485,7 +554,7 @@ function derniereChance() {
     $('#bulle p').html('Reflechit bien !');
     localStorage.setItem('ecathedrale-etat', 'endFail');
     $('.barreEnigme').html("C'est ta dernière chance ...");
-    $('#enigme7 .enigme_content').addClass('hidden');
+    $('#enigme8 .enigme_content').addClass('hidden');
     $('#derniereChance .enigme_content').removeClass('hidden');
     $(".dcLabel").disableSelection();
     $(".dcLabel").click(function(){

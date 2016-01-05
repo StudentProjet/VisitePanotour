@@ -44,6 +44,53 @@
 
 <body>
 
+<section class="container">
+
+    <div class="row">
+
+        <div id="endGame" class="col-md-12 col-sm-12 col-xs12" style="display: none;">
+            <h3 class="title text-center">TOUTES NOS FELICITATIONS!</h3>
+            <div class="teaser text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <p>Ta reussite te permet d'accéder finalement à l'ange pleureur, le patron des enfants orphelins.</p>
+                        <p>Cet ange triste symbolise le chagrin des orphelins dont la chanoine Guillan Lucas s'est occupé.</p>
+                        <p>Il se situe en haut de son mausolée comme tu peux le voir sur cette photo</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <img src="assets/imgs/tombeau.png" height="280">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <img src="assets/imgs/angePleureur.png" height="280">
+                    </div>
+                </div>
+                <br/>
+                <p>Ce mausolée de trouve dans la partie appelée déambulatoire</p>
+                <p><img src="assets/imgs/popup_7.png"></p>
+                <p>Tu as résolu toutes les énigmes. Encore Bravo !</p>
+                <p>Tu peux rejouer et essayer de terminer le jeu plus vite</p>
+            </div>
+            <div class="teaser text-center">
+                <button class="btn btn-default btn-lg restart" id="restartWin" role="button">Recommencer l'aventure !</button>
+            </div>
+        </div>
+
+        <div id="endGameLost" class="col-md-12 col-xs-12 col-sm-12" style="display: none;">
+            <h3 class="title text-center">TOUTES NOS FELICITATIONS!</h3>
+            <div class="teaser text-center">
+                <p>Tu as découvert la dernière partie de la cathédrale.</p>
+                <p><img src="assets/imgs/popup_7.png"></p>
+                <p>Tu as résolu toutes les énigmes. Encore Bravo !</p>
+                <p>Mais tu n'as pas trouvé le secret ultime... Alors veux tu rejouer?</p>
+            </div>
+            <div class="teaser text-center">
+                <button class="btn btn-default btn-lg restart" id="restartLost" role="button">Recommencer l'aventure !</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <section id="home">
     <header id="home_header" >
         <img src="./assets/imgs/banner.png" />
@@ -225,7 +272,38 @@
                         <div class="enigme_content hidden">
                         </div>
                     </div>
+
                     <div id="enigme7" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Recherches le <strong>labyrinthe</strong>.</p>
+                            <p>Situé dans la nef. Ce labyrinthe, dont le parcours mesure 324 mètres, représente un octogone.</p>
+                            <p>Il est constitué d’un pavage de pierres blanches et bleu foncé.</p>
+                        </div>
+                        <div class="enigme_content col-md-12 hidden">
+                            <div class="col-md-12">
+                                <p>Bravo, tu as trouvé l'énigme 7 ! <br>
+                                Pour résoudre cette énigme, replace les 3 architectes de la cathédrale dans l'ordre chronologique.<br>
+                                Il te restera ensuite à placer l'évêque qui a commandé la cathédrale en quatrième position.</p>
+                            </div>
+
+                            <div id="dragDropEnigme7" class="col-md-12">
+                                <div id="cardSlots">
+                                    <div data-letter="p" class="recepteur"> - </div>
+                                    <div data-letter="a" class="recepteur"> - </div>
+                                    <div data-letter="i" class="recepteur"> - </div>
+                                    <div data-letter="n" class="recepteur"> - </div>
+                                </div>
+                                <div id="cardPile">
+                                    <div data-letter="n" class="dragIt"> Evrard de Fouilloy -> N </div>
+                                    <div data-letter="p" class="dragIt"> Robert de Luzarche -> P </div>
+                                    <div data-letter="i" class="dragIt"> Renaud de Cormont -> I </div>
+                                    <div data-letter="a" class="dragIt"> Thomas de Cormont -> A </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="enigme8" class="row enigmes">
                         <div class="enigme_info col-md-12 hidden">
                             <p>Dirige-toi dans les bas côtés de la Cathédrale, qui se situent de part et d'autre de la nef.</p>
                             <p>Il te faut trouver le bas-côté Nord.</p>
@@ -397,7 +475,7 @@
                 <p>Maintenant dirige-toi vers l’Est</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default change" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -419,7 +497,7 @@
                 <p>Maintenant dirige-toi vers le Nord</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default change" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -441,7 +519,7 @@
                 <img src="assets/imgs/popup_4.png" alt="">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default change" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -462,7 +540,7 @@
                 <img src="assets/imgs/popup_5.png" alt="">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default change" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -483,7 +561,7 @@
                 <img src="assets/imgs/popup_6.png" alt="">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default change" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -503,10 +581,10 @@
                 <p>Tu as également découvert l’histoire du <strong>labyrinthe</strong>. Sa pierre centrale, dont l’original est conservé au Musée de Picardie, indique les points cardinaux.</p>
                 <img src="assets/imgs/centre_labyrinthe.jpg">
                 <p>Tu connais maintenant <strong>la nef de la cathédrale</strong></p>
-
+                <img src="assets/imgs/popup_7.png" alt="">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+                <button type="button" class="btn btn-default change" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
@@ -534,10 +612,55 @@
     </div>
 </div>
 
+<!-- Modal 9 -->
+<div class="modal fade" id="modal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Voilà,</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le personnage mystère.</p>
+                <p>Il s'agit du 6ème évêque d'Amiens, vers l'an 600, Saint Honoré.</p>
+                <p>Il est devenu le St Patron des Boulangers, fêté le 16 mai, le jour de la fête du pain.</p>
+                <p>Il a donné son nom à la célèbre patisserie : le saint Honoré.</p>
+                <p>Il est représenté en tenue d'évêque portant un pain dans la main.</p>
+
+                <center><img src="assets/imgs/st-honore.jpg" /></center>
+
+                <p>La corporation des boulangers lui a dédié la chapelle devant laquelle tu te trouves.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="endWin">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 10 -->
+<div class="modal fade" id="modal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Dommage,</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu n'as pas réussi à trouver le nom du personnage mystère. </p>
+                <p>Tu viens de perdre toutes tes clefs, tu ne pourras donc pas accéder au secret ultime.</p>
+                <p>Mais il reste une dernière chance pour tenter de trouver le personnage mystère.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="visite-finaledata/visite-finale.js"></script>
 <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
