@@ -28,6 +28,12 @@ h4.modal-title, h3{
     font-family: Mason;
 }
 
+.btn-info {
+    color: #fff;
+    background-color: #563913;
+    border-color: black;
+}
+
 /* Header Homepage */
 
 header#home_header
@@ -93,11 +99,16 @@ div.btn {
 
 }
 
-div.btn:hover {
+div.btn:hover, .btn-info:hover {
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
     cursor: pointer;
     color:white;
+}
+
+.btn-info:hover {
+    background-color: #563913;
+    border-color: black;
 }
 
 /* Content Panotour + Enigme */

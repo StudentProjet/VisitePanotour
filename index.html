@@ -71,7 +71,23 @@
                 <p>Tu peux rejouer et essayer de terminer le jeu plus vite</p>
             </div>
             <div class="teaser text-center">
-                <button class="btn btn-default btn-lg restart" id="restartWin" role="button">Recommencer l'aventure !</button>
+                <button class="btn btn-info btn-lg restart restartWin" role="button">Recommencer l'aventure !</button>
+                <button class="btn btn-info btn-lg restart" id="continuePassage3" role="button">Continuer l'aventure !</button>
+            </div>
+        </div>
+
+        <div id="endGamePass3" class="col-md-12 col-sm-12 col-xs12" style="display: none;">
+            <h3 class="title text-center">TOUTES NOS FELICITATIONS!</h3>
+            <div class="teaser text-center">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <p>Ta reussite te permet d'accéder finalement à la vierge dorée.</p>
+                        <p>Ton Aventure est maintenant terminée, n’hésite pas à visiter la Cathédrale dans tout ses recoins pour y découvrir de nombreux autres secrets historiques !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="teaser text-center">
+                <button class="btn btn-info btn-lg restart restartWin" role="button">Recommencer l'aventure !</button>
             </div>
         </div>
 
@@ -123,7 +139,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <ul id="icones">
-                <li><a href="#aide" data-toggle="modal" data-target="#popinHelp"><img class="imgnav" src="assets/imgs/btn_aide.png"></a></li>
+                <li><a href="#aide" data-toggle="modal" data-target="#popinHelp"><img class="imgnav" id="aide-img" src="assets/imgs/btn_aide.png"></a></li>
                 <li><a href="#indice"><img class="imgnav" id="indice-img" src="assets/imgs/btn_points_0.png"></a></li>
             </ul>
         </div>
@@ -373,6 +389,97 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Passage 3 -->
+                    <div id="enigme9" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Pour trouver l’énigme 1,</p>
+                            <p>Tu dois sortir de la Cathédrale par le Sud. Tu tu retrouveras devant le portail Sud.</p>
+                            <p>Retrouve la vierge dorée sur le portail.</p>
+                        </div>
+                        <div class="enigme_content col-md-12 hidden">
+                            <p>Bravo tu as trouvé l’énigme 1</p>
+                            <p>Pour résoudre cette énigme, trouve la vierge dorée sur ce portail. Elle te donnera l’indice pour continuer l’aventure. A toi de jouer !</p>
+                            <center>
+                                <img src="assets/imgs/vierge.jpg" width="70%"/>
+                                <input type='text' placeholder='Réponse' name='reponseVierge'/>
+                                <button class='checkVierge'> Vérifier </button>
+                            </center>
+
+                        </div>
+                    </div>
+                    <div id="enigme10" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Rend toi au portail ouest, c’est à dire le portail principal de la Cathédrale.</p>
+                            <p>Ce portail est aussi appelé « Le portail du Jugement dernier ».</p>
+                        </div>
+                        <div class="enigme_content col-md-12 hidden">
+                            <p>Bravo tu as trouvé l’énigme 2</p>
+                            <p>Pour résoudre cette énigme, retrouve le nom du personnage représenté par la statue centrale du portail parmi la liste.</p>
+                            <p>A toi de jouer !</p>
+                            <p>Clef :</p>
+                            <img src="assets/imgs/enigme_clef.png" width="65%">
+                            <p>Message :</p>
+                            <img src="assets/imgs/enigme_resultat.png" width="65%"><br>
+                            <input type='text' placeholder='Réponse' name='reponseMessage'/>
+                            <button class='checkMessage'> Vérifier </button>
+                        </div>
+                    </div>
+                    <div id="enigme11" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Rend toi au portail Nord de la Cathédrale.</p>
+                            <p>Sur ce portail tu retrouveras un personnage déjà rencontré à l’intérieur de la Cathédrale.</p>
+                            <p>Il s’agit de Saint-Honoré.</p>
+                            <p>Il te donnera un nouvel indice pour découvrir le secret final de cette aventure.</p>
+                        </div>
+                        <div class="enigme_content col-md-12 hidden">
+                            <p>Bravo tu as trouvé l’énigme 3</p>
+                            <p>Pour résoudre cette énigme, dit moi vers quel point cardinal est dirigé cette boussole :</p>
+                            <p>A toi de jouer !</p>
+                            <img src="assets/imgs/enigme_boussole.png" width="40%">
+                            <div style="float: right; margin-right: 15%">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="1">
+                                        Nord - Ouest
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">
+                                        Sud - Est
+                                    </label>
+                                </div>
+                                <button class='checkBoussole'> Vérifier </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="enigme12" class="row enigmes">
+                        <div class="enigme_info col-md-12 hidden">
+                            <p>Pour trouver le secret final, retourne à l’intérieur et utilise la direction du 3ème indice :</p>
+                            <p>Rend toi au portail ouest, c’est à dire le portail principal de la Cathédrale.</p>
+                        </div>
+                        <div class="enigme_content col-md-12 hidden">
+                            <p>Bravo tu as trouvé l’endroit du secret final,</p>
+                            <p>clique sur la statue pour le découvrir :</p>
+                            <p>Selon toi cette statue est :</p>
+
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios2" value="1">
+                                    La vraie vierge dorée, donc celle sur le portail Sud est une copie
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios2" value="2">
+                                    La copie de la vierge dorée située à l’extérieur de la Cathédrale
+                                </label>
+                            </div>
+                            <button class='checkFinal'> Vérifier </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -653,6 +760,107 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popin Commencer Passage 3 -->
+<div class="modal fade" id="popinCommencerPassage3" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pour commencer ...</h4>
+            </div>
+            <div class="modal-body">
+                <p>Il te faut trouver 3 indices. Tu vas maintenant découvrir l’extérieur de la Cathédrale.</p>
+                <p>Un indice est obtenu à chaque fois que tu résous une énigme.</p>
+                <p>A toi de trouver ces énigmes, symbolisées par des pièces jaunes posées sur le pavement de la Cathédrale. Déplace-toi dans la cathédrale et à l’extérieur pour les découvrir.</p>
+                <p>Bonne chasse.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPass3_1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Félicitation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le premier indice qui est « COPIE », elle te dit de te rendre au portail principal situé à l’Ouest</p>
+                <p>Tu as maintenant un indice : Copie.</p>
+                <p>Tu as découvert le portail sud à l’extérieur de la Cathédrale</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default change_pass3" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPass3_2" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Félicitation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le personnage qui est « Jésus Christ » et le second indice qui est « NORD », cet indice te conduit au portail Nord à l’extérieur de la Cathédrale</p>
+                <p>Tu as maintenant deux indices : Copie et Nord.</p>
+                <p>Tu as découvert le portail principal à l’extérieur de la Cathédrale</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default change_pass3" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPass3_3" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Félicitation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as trouvé le troisième indice indice qui est « SUD-EST », De plus Saint-Honoré t’informe que tu dois retourner à l’intérieur et prendre la direction du 3ème indice.</p>
+                <p>Tu as utilisé l’indice « NORD » pour retrouver Saint-Honoré à l’extérieur de la Cathédrale.</p>
+                <p>Il te reste 2 indices : « COPIE » et « SUD-EST »</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default change_pass3" data-dismiss="modal">Continuer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPass3_final" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Félicitation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tu as découvert que cette statue est la vraie vierge dorée</p>
+                <p>Cette statue originale, menacée par les intempéries, a été transférée à l'intérieur de la cathédrale en 1980 et remplacée par un moulage à l’extérieur. La statue nous montre une Vierge couronnée et portant l'enfant Jésus, le regard posé vers lui avec douceur. La tête de la Vierge est surmontée d'un dais. Trois angelots souriants portent son nimbe. Elle est légèrement hanchée, le poids du corps portant sur une seule jambe.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default change_pass3" id="finalStep" data-dismiss="modal">Continuer</button>
             </div>
         </div>
     </div>
