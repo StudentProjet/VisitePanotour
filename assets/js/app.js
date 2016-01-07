@@ -173,7 +173,9 @@ function startstep(number){
                 break;
         }
     }
-    else {
+    else if (number == "12"){
+        location.reload(true);
+    } else {
         console.log('Cette énigme n\'est pas encore accessible à l\'utilisateur ...');
     }
 }
